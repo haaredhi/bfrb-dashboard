@@ -7,42 +7,26 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:       #eef2f8;
-  --surface:  #ffffff;
-  --surface2: #f5f8fc;
-  --border:   #dce6f4;
-  --text:     #1e2a3a;
-  --text2:    #5a6a82;
-  --text3:    #9aaabb;
-  --blue:     #7aa4d4;
-  --blue-l:   #c8daf0;
-  --lav:      #a89ed4;
-  --lav-l:    #dcd8f4;
-  --rose:     #c07b8a;
-  --rose-l:   #f0d8de;
-  --sage:     #7ab49a;
-  --sage-l:   #d4ede6;
-  --amber:    #c0a07a;
-  --amber-l:  #f0e4d4;
-  --grad:     linear-gradient(135deg,#c8daf0 0%,#dcd8f4 50%,#c8eaf0 100%);
-  --bar:      linear-gradient(180deg,#a8c0e8 0%,#c8a8e8 100%);
-  --shadow:   0 2px 16px rgba(100,120,180,0.10);
-  --shadow-s: 0 1px 6px rgba(100,120,180,0.08);
-  --r:        14px;
-  --r-s:      10px;
+  --bg:#eef2f8;--surface:#ffffff;--surface2:#f5f8fc;--border:#dce6f4;
+  --text:#1e2a3a;--text2:#5a6a82;--text3:#9aaabb;
+  --blue:#7aa4d4;--blue-l:#c8daf0;--lav:#a89ed4;--lav-l:#dcd8f4;
+  --rose:#c07b8a;--rose-l:#f0d8de;--sage:#7ab49a;--sage-l:#d4ede6;
+  --amber:#c0a07a;--amber-l:#f0e4d4;
+  --grad:linear-gradient(135deg,#c8daf0 0%,#dcd8f4 50%,#c8eaf0 100%);
+  --bar:linear-gradient(180deg,#a8c0e8 0%,#c8a8e8 100%);
+  --shadow:0 2px 16px rgba(100,120,180,0.10);
+  --shadow-s:0 1px 6px rgba(100,120,180,0.08);
+  --r:14px;--r-s:10px;
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:24px;}
-
 #loading{position:fixed;inset:0;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:999;gap:16px;}
 .spinner{width:40px;height:40px;border:3px solid var(--blue-l);border-top-color:var(--blue);border-radius:50%;animation:spin 0.8s linear infinite;}
 @keyframes spin{to{transform:rotate(360deg);}}
-.loading-text{font-size:13px;color:var(--text3);letter-spacing:0.5px;}
-
+.loading-text{font-size:13px;color:var(--text3);}
 .header{background:var(--grad);border-radius:var(--r);padding:24px 28px;margin-bottom:20px;display:flex;align-items:center;gap:20px;box-shadow:var(--shadow);}
 .logo-box{width:56px;height:56px;background:#1e3a5f;border-radius:var(--r-s);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;gap:2px;}
-.logo-box .l1{color:#b8cce0;font-size:9px;font-weight:700;letter-spacing:0.5px;}
-.logo-box .l2{color:#6a8aaa;font-size:7px;}
+.logo-box .l1{color:#b8cce0;font-size:9px;font-weight:700;}.logo-box .l2{color:#6a8aaa;font-size:7px;}
 .hdr-main{flex:1;}
 .hdr-title{font-size:17px;font-weight:700;color:#1a2a4a;line-height:1.3;}
 .hdr-sub{font-size:11px;color:#4a5a7a;margin-top:4px;}
@@ -53,58 +37,42 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .live-badge{display:inline-flex;align-items:center;gap:5px;background:var(--sage-l);border:1px solid var(--sage);color:#1a5a3a;font-size:10px;font-weight:600;padding:3px 10px;border-radius:20px;margin-top:6px;}
 .live-dot{width:6px;height:6px;border-radius:50%;background:var(--sage);animation:pulse 2s infinite;}
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
-
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:12px;margin-bottom:18px;}
 .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px 16px;text-align:center;box-shadow:var(--shadow-s);transition:transform 0.15s;}
 .card:hover{transform:translateY(-2px);}
 .card-lbl{font-size:9px;text-transform:uppercase;letter-spacing:1.2px;color:var(--text3);margin-bottom:8px;font-weight:600;}
 .card-val{font-size:26px;font-weight:700;color:var(--text);}
 .card-sub{font-size:9px;color:var(--text3);margin-top:3px;}
-
 .sec{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--text3);margin:20px 0 12px;display:flex;align-items:center;gap:10px;}
 .sec::after{content:'';flex:1;height:1px;background:var(--border);}
-
 .charts-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
 @media(max-width:680px){.charts-grid{grid-template-columns:1fr;}}
 .chart-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:20px;box-shadow:var(--shadow-s);}
 .chart-title{font-size:12px;font-weight:600;color:var(--text2);margin-bottom:16px;}
 .bar-chart{display:flex;align-items:flex-end;gap:3px;height:160px;padding-top:24px;}
 .bar-col{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;flex:1;}
-.bar-fill{width:100%;background:var(--bar);border-radius:3px 3px 0 0;min-height:2px;transition:height 0.6s cubic-bezier(0.34,1.56,0.64,1);}
+.bar-fill{width:100%;background:var(--bar);border-radius:3px 3px 0 0;min-height:2px;}
 .bar-val{font-size:8px;font-weight:700;color:var(--text2);margin-bottom:3px;min-height:12px;}
-.bar-lbl{font-size:7.5px;color:var(--text3);margin-top:4px;white-space:nowrap;}
-
+.bar-lbl{font-size:7.5px;color:var(--text3);margin-top:4px;}
 .tbl-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-s);}
 table{width:100%;border-collapse:collapse;font-size:12px;}
 thead tr{background:var(--surface2);}
 th{padding:11px 16px;text-align:left;font-size:9px;text-transform:uppercase;letter-spacing:1px;color:var(--text3);font-weight:700;border-bottom:1px solid var(--border);}
 td{padding:10px 16px;border-bottom:1px solid var(--surface2);color:var(--text);}
-tr:last-child td{border-bottom:none;}
-tr:hover td{background:#f8fbff;}
-.td-num{color:var(--text3);font-size:11px;}
-.td-mono{font-family:'DM Mono',monospace;font-size:11px;color:var(--text2);}
+tr:last-child td{border-bottom:none;}tr:hover td{background:#f8fbff;}
+.td-num{color:var(--text3);font-size:11px;}.td-mono{font-family:'DM Mono',monospace;font-size:11px;color:var(--text2);}
 .no-data{text-align:center;padding:40px;color:var(--text3);font-size:12px;}
-
 .badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:10px;font-weight:600;}
 .badge-nail{background:var(--rose-l);color:#7a2a3a;border:1px solid #e0a0aa;}
 .badge-face{background:var(--amber-l);color:#7a4a1a;border:1px solid #e0c090;}
 .badge-rest{background:var(--sage-l);color:#1a5a3a;border:1px solid #90c8a8;}
-
 .cbar{display:inline-flex;align-items:center;gap:6px;}
 .cbar-bg{background:#eef2f8;border-radius:3px;height:5px;width:70px;display:inline-block;vertical-align:middle;overflow:hidden;}
 .cbar-fill{height:5px;border-radius:3px;background:var(--bar);}
-
 .error-box{background:var(--rose-l);border:1px solid var(--rose);border-radius:var(--r);padding:20px;color:#7a2a3a;font-size:13px;margin-bottom:20px;display:none;}
-
-.footer{text-align:center;margin-top:28px;font-size:10px;color:var(--text3);letter-spacing:0.5px;line-height:2;}
+.footer{text-align:center;margin-top:28px;font-size:10px;color:var(--text3);line-height:2;}
 .footer a{color:var(--blue);text-decoration:none;}
-.footer a:hover{text-decoration:underline;}
-
-@media(max-width:600px){
-  body{padding:14px;}
-  .header{flex-direction:column;align-items:flex-start;}
-  .hdr-right{text-align:left;}
-}
+@media(max-width:600px){body{padding:14px;}.header{flex-direction:column;align-items:flex-start;}.hdr-right{text-align:left;}}
 </style>
 </head>
 <body>
@@ -115,12 +83,8 @@ tr:hover td{background:#f8fbff;}
 </div>
 
 <div id="app" style="display:none;">
-
   <div class="header">
-    <div class="logo-box">
-      <span class="l1">KFUPM</span>
-      <span class="l2">Est. 1963</span>
-    </div>
+    <div class="logo-box"><span class="l1">KFUPM</span><span class="l2">Est. 1963</span></div>
     <div class="hdr-main">
       <div class="hdr-title">An Enhanced Smart Bracelet for Body-Focused Repetitive Behaviors Assistance</div>
       <div class="hdr-sub">BFRB Detection Dashboard &nbsp;·&nbsp; ESP32-C3 &nbsp;·&nbsp; Edge Impulse TFLite &nbsp;·&nbsp; Firebase Realtime Database</div>
@@ -133,227 +97,142 @@ tr:hover td{background:#f8fbff;}
     </div>
   </div>
 
-  <div class="error-box" id="error-box">
-    ⚠️ Could not load data from Firebase. Check that your database rules allow public read access.
-  </div>
+  <div class="error-box" id="error-box">⚠️ Could not load data from Firebase. Check database rules allow public read.</div>
 
   <div class="cards">
-    <div class="card">
-      <div class="card-lbl">Total events</div>
-      <div class="card-val" id="stat-total" style="color:var(--rose);">—</div>
-      <div class="card-sub">all time</div>
-    </div>
-    <div class="card">
-      <div class="card-lbl">First detected</div>
-      <div class="card-val" id="stat-first" style="font-size:13px;color:var(--text2);">—</div>
-      <div class="card-sub">earliest event</div>
-    </div>
-    <div class="card">
-      <div class="card-lbl">Latest event</div>
-      <div class="card-val" id="stat-last" style="font-size:13px;color:var(--text2);">—</div>
-      <div class="card-sub">most recent</div>
-    </div>
-    <div class="card">
-      <div class="card-lbl">Peak hour</div>
-      <div class="card-val" id="stat-hour" style="color:var(--lav);">—</div>
-      <div class="card-sub">most active time</div>
-    </div>
-    <div class="card">
-      <div class="card-lbl">Peak day</div>
-      <div class="card-val" id="stat-day" style="font-size:16px;color:var(--blue);">—</div>
-      <div class="card-sub">most active weekday</div>
-    </div>
-    <div class="card">
-      <div class="card-lbl">Avg confidence</div>
-      <div class="card-val" id="stat-conf" style="color:var(--sage);">—</div>
-      <div class="card-sub">detection certainty</div>
-    </div>
+    <div class="card"><div class="card-lbl">Total events</div><div class="card-val" id="stat-total" style="color:var(--rose);">—</div><div class="card-sub">all time</div></div>
+    <div class="card"><div class="card-lbl">First detected</div><div class="card-val" id="stat-first" style="font-size:13px;color:var(--text2);">—</div><div class="card-sub">earliest event</div></div>
+    <div class="card"><div class="card-lbl">Latest event</div><div class="card-val" id="stat-last" style="font-size:13px;color:var(--text2);">—</div><div class="card-sub">most recent</div></div>
+    <div class="card"><div class="card-lbl">Peak hour</div><div class="card-val" id="stat-hour" style="color:var(--lav);">—</div><div class="card-sub">most active time</div></div>
+    <div class="card"><div class="card-lbl">Peak day</div><div class="card-val" id="stat-day" style="font-size:16px;color:var(--blue);">—</div><div class="card-sub">most active weekday</div></div>
+    <div class="card"><div class="card-lbl">Avg confidence</div><div class="card-val" id="stat-conf" style="color:var(--sage);">—</div><div class="card-sub">detection certainty</div></div>
   </div>
 
   <div class="sec">Analytics</div>
   <div class="charts-grid">
-    <div class="chart-wrap">
-      <div class="chart-title">Nail biting events by hour of day</div>
-      <div class="bar-chart" id="hour-chart"></div>
-    </div>
-    <div class="chart-wrap">
-      <div class="chart-title">Nail biting events by day of week</div>
-      <div class="bar-chart" id="day-chart"></div>
-    </div>
+    <div class="chart-wrap"><div class="chart-title">Nail biting events by hour of day</div><div class="bar-chart" id="hour-chart"></div></div>
+    <div class="chart-wrap"><div class="chart-title">Nail biting events by day of week</div><div class="bar-chart" id="day-chart"></div></div>
   </div>
 
-  <div class="sec" style="margin-top:20px;">
-    Full event log
-    <span style="font-weight:400;font-size:9px;text-transform:none;letter-spacing:0;" id="event-count-label"></span>
-  </div>
+  <div class="sec" style="margin-top:20px;">Full event log <span style="font-weight:400;font-size:9px;text-transform:none;letter-spacing:0;" id="event-count-label"></span></div>
   <div class="tbl-wrap">
     <table>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Date &amp; Time</th>
-          <th>Label</th>
-          <th>Confidence</th>
-          <th>Hour</th>
-          <th>Day</th>
-        </tr>
-      </thead>
+      <thead><tr><th>#</th><th>Date &amp; Time</th><th>Label</th><th>Confidence</th><th>Hour</th><th>Day</th></tr></thead>
       <tbody id="event-table"></tbody>
     </table>
   </div>
 
   <div class="footer">
     An Enhanced Smart Bracelet for BFRBs Assistance &nbsp;·&nbsp; Hanan Al-Redhi &nbsp;·&nbsp; KFUPM<br>
-    Data stored in
-    <a href="https://bfrb-dashboard-default-rtdb.firebaseio.com/events.json" target="_blank">Firebase Realtime Database ↗</a>
+    Data stored in <a href="https://bfrb-dashboard-default-rtdb.firebaseio.com/events.json" target="_blank">Firebase Realtime Database ↗</a>
   </div>
-
 </div>
 
 <script>
-// ── Config ───────────────────────────────────────────────────────────────
 const FIREBASE_URL = 'https://bfrb-dashboard-default-rtdb.firebaseio.com/events.json';
-const REFRESH      = 30000;
-
+const REFRESH = 30000;
 const DAY_NAMES = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 const DAY_SHORT = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 
-// ── Live clock ────────────────────────────────────────────────────────────
 function updateClock() {
   document.getElementById('live-clock').textContent =
-    new Date().toLocaleString('en-GB', {
-      weekday:'short', day:'2-digit', month:'short',
-      year:'numeric', hour:'2-digit', minute:'2-digit',
-      second:'2-digit', hour12:false
-    });
+    new Date().toLocaleString('en-GB',{weekday:'short',day:'2-digit',month:'short',
+    year:'numeric',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});
 }
-setInterval(updateClock, 1000);
-updateClock();
+setInterval(updateClock,1000); updateClock();
 
-// ── Fetch from Firebase ───────────────────────────────────────────────────
 async function fetchData() {
   try {
-    const res  = await fetch(FIREBASE_URL);
+    const res  = await fetch(FIREBASE_URL + '?print=pretty', {
+      method: 'GET',
+      headers: { 'Accept': 'application/json' }
+    });
     const data = await res.json();
-
-    // Firebase returns an object with auto-generated keys, convert to array
-    const events = data
-      ? Object.values(data).map(e => ({
-          timestamp:  e.timestamp  ?? '—',
-          label:      e.label      ?? '',
-          confidence: parseFloat(e.confidence ?? 0),
-          hour:       parseInt(e.hour ?? -1),
-          weekday:    e.weekday    ?? '',
-        }))
-      : [];
-
+    const events = data ? Object.values(data).map(e => ({
+      timestamp:  e.timestamp  ?? '—',
+      label:      e.label      ?? '',
+      confidence: parseFloat(e.confidence ?? 0),
+      hour:       parseInt(e.hour ?? -1),
+      weekday:    e.weekday    ?? '',
+    })) : [];
     render(events);
-    document.getElementById('last-fetch').textContent =
-      new Date().toLocaleTimeString('en-GB');
+    document.getElementById('last-fetch').textContent = new Date().toLocaleTimeString('en-GB');
     document.getElementById('error-box').style.display = 'none';
   } catch(err) {
     console.error(err);
     document.getElementById('error-box').style.display = 'block';
   } finally {
     document.getElementById('loading').style.display = 'none';
-    document.getElementById('app').style.display     = 'block';
+    document.getElementById('app').style.display = 'block';
   }
 }
 
-// ── Render ────────────────────────────────────────────────────────────────
 function render(events) {
   const nail = events.filter(e => e.label.includes('nail'));
-
   document.getElementById('stat-total').textContent = nail.length;
-
   if (nail.length > 0) {
     document.getElementById('stat-first').textContent = nail[0].timestamp;
-    document.getElementById('stat-last').textContent  = nail[nail.length - 1].timestamp;
-
-    // Peak hour
+    document.getElementById('stat-last').textContent  = nail[nail.length-1].timestamp;
     const hc = Array(24).fill(0);
-    nail.forEach(e => { if (e.hour >= 0 && e.hour < 24) hc[e.hour]++; });
+    nail.forEach(e => { if (e.hour>=0&&e.hour<24) hc[e.hour]++; });
     const ph = hc.indexOf(Math.max(...hc));
     document.getElementById('stat-hour').textContent = `${String(ph).padStart(2,'0')}:00`;
-
-    // Peak day
     const dc = {};
-    nail.forEach(e => { if (e.weekday) dc[e.weekday] = (dc[e.weekday] || 0) + 1; });
-    const pd = Object.entries(dc).sort((a,b) => b[1] - a[1])[0]?.[0] ?? '—';
-    document.getElementById('stat-day').textContent = pd.slice(0, 3);
-
-    // Avg confidence
-    const avg = nail.reduce((s, e) => s + e.confidence, 0) / nail.length;
-    document.getElementById('stat-conf').textContent = avg.toFixed(1) + '%';
+    nail.forEach(e => { if (e.weekday) dc[e.weekday]=(dc[e.weekday]||0)+1; });
+    const pd = Object.entries(dc).sort((a,b)=>b[1]-a[1])[0]?.[0]??'—';
+    document.getElementById('stat-day').textContent = pd.slice(0,3);
+    const avg = nail.reduce((s,e)=>s+e.confidence,0)/nail.length;
+    document.getElementById('stat-conf').textContent = avg.toFixed(1)+'%';
   } else {
     ['stat-first','stat-last','stat-hour','stat-day','stat-conf']
-      .forEach(id => document.getElementById(id).textContent = '—');
+      .forEach(id => document.getElementById(id).textContent='—');
   }
 
-  // Hour chart
   const hc = Array(24).fill(0);
-  nail.forEach(e => { if (e.hour >= 0 && e.hour < 24) hc[e.hour]++; });
-  const maxH = Math.max(...hc, 1);
-  document.getElementById('hour-chart').innerHTML =
-    hc.map((cnt, i) => {
-      const h = Math.round((cnt / maxH) * 130);
-      return `<div class="bar-col">
-        <div class="bar-val">${cnt || ''}</div>
-        <div class="bar-fill" style="height:${Math.max(h, 2)}px;"></div>
-        <div class="bar-lbl">${String(i).padStart(2,'0')}</div>
-      </div>`;
-    }).join('');
+  nail.forEach(e => { if (e.hour>=0&&e.hour<24) hc[e.hour]++; });
+  const maxH = Math.max(...hc,1);
+  document.getElementById('hour-chart').innerHTML = hc.map((cnt,i) => {
+    const h = Math.round((cnt/maxH)*130);
+    return `<div class="bar-col"><div class="bar-val">${cnt||''}</div>
+      <div class="bar-fill" style="height:${Math.max(h,2)}px;"></div>
+      <div class="bar-lbl">${String(i).padStart(2,'0')}</div></div>`;
+  }).join('');
 
-  // Day chart
   const dc = Array(7).fill(0);
   nail.forEach(e => {
-    const idx = DAY_NAMES.findIndex(d =>
-      e.weekday && e.weekday.toLowerCase() === d.toLowerCase());
-    if (idx >= 0) dc[idx]++;
+    const idx = DAY_NAMES.findIndex(d => e.weekday&&e.weekday.toLowerCase()===d.toLowerCase());
+    if (idx>=0) dc[idx]++;
   });
-  const maxD = Math.max(...dc, 1);
-  document.getElementById('day-chart').innerHTML =
-    dc.map((cnt, i) => {
-      const h = Math.round((cnt / maxD) * 130);
-      return `<div class="bar-col">
-        <div class="bar-val">${cnt || ''}</div>
-        <div class="bar-fill" style="height:${Math.max(h, 2)}px;"></div>
-        <div class="bar-lbl">${DAY_SHORT[i]}</div>
-      </div>`;
-    }).join('');
+  const maxD = Math.max(...dc,1);
+  document.getElementById('day-chart').innerHTML = dc.map((cnt,i) => {
+    const h = Math.round((cnt/maxD)*130);
+    return `<div class="bar-col"><div class="bar-val">${cnt||''}</div>
+      <div class="bar-fill" style="height:${Math.max(h,2)}px;"></div>
+      <div class="bar-lbl">${DAY_SHORT[i]}</div></div>`;
+  }).join('');
 
-  // Event table (newest first)
-  document.getElementById('event-count-label').textContent =
-    `— ${events.length} total records`;
-
+  document.getElementById('event-count-label').textContent = `— ${events.length} total records`;
   const tbody = document.getElementById('event-table');
-  if (events.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="6" class="no-data">No events recorded yet.</td></tr>';
+  if (events.length===0) {
+    tbody.innerHTML='<tr><td colspan="6" class="no-data">No events recorded yet.</td></tr>';
     return;
   }
-
-  tbody.innerHTML = [...events].reverse().map((e, i) => {
-    const bc = e.label.includes('nail') ? 'badge-nail'
-             : e.label.includes('face') ? 'badge-face'
-             : 'badge-rest';
-    const fw = Math.round(Math.min(e.confidence, 100) * 0.7);
+  tbody.innerHTML = [...events].reverse().map((e,i) => {
+    const bc = e.label.includes('nail')?'badge-nail':e.label.includes('face')?'badge-face':'badge-rest';
+    const fw = Math.round(Math.min(e.confidence,100)*0.7);
     return `<tr>
-      <td class="td-num">${events.length - i}</td>
+      <td class="td-num">${events.length-i}</td>
       <td class="td-mono">${e.timestamp}</td>
       <td><span class="badge ${bc}">${e.label}</span></td>
-      <td>
-        <span class="cbar">
-          ${e.confidence.toFixed(1)}%
-          <span class="cbar-bg"><span class="cbar-fill" style="width:${fw}px;"></span></span>
-        </span>
-      </td>
-      <td class="td-mono">${e.hour >= 0 ? String(e.hour).padStart(2,'0') + ':00' : '—'}</td>
-      <td>${e.weekday || '—'}</td>
+      <td><span class="cbar">${e.confidence.toFixed(1)}%
+        <span class="cbar-bg"><span class="cbar-fill" style="width:${fw}px;"></span></span>
+      </span></td>
+      <td class="td-mono">${e.hour>=0?String(e.hour).padStart(2,'0')+':00':'—'}</td>
+      <td>${e.weekday||'—'}</td>
     </tr>`;
   }).join('');
 }
 
-// ── Start ─────────────────────────────────────────────────────────────────
 fetchData();
 setInterval(fetchData, REFRESH);
 </script>
